@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reminder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label [routerLink]="['/reminder-detail']">
+        <h2>Activity 1</h2>
+        <p>You need to walk...</p>
+        <p>Duration: 60 Min</p>
+        <p>Due Date: 05-31-2022</p>
+      </ion-label>
+      <ion-button size="big" (onclick)="presentToast()">Finish</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label [routerLink]="['/reminder-detail']">
+        <h2>Activity 2</h2>
+        <p>You need to walk...</p>
+        <p>Duration: 60 Min</p>
+        <p>Due Date: 05-31-2022</p>
+      </ion-label>
+      <ion-button size="big" (onclick)="presentToast()">Finish</ion-button>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
