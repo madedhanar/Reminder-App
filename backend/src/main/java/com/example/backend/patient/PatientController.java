@@ -23,7 +23,6 @@ public class PatientController {
         List<patient> patients = new ArrayList<>();
         patients.add(new patient(1L, "Patient1","patient1@gmail.com","patient1"));
         patients.add(new patient(2L, "Patient2","patient2@gmail.com","patient2"));
-        patients.add(new patient(3L, "Patient3","patient3@gmail.com","patient3"));
         return patients;
 
 
