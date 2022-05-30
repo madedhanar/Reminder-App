@@ -18,15 +18,13 @@ public class DoctorController {
     //Get
     @GetMapping
     public List<Doctor> getDoctor(){
-        List<Doctor> doctors = new ArrayList<>();
-        doctors.add(new Doctor(1L, "Doctor1","doctor1@gmail.com","doctor1"));
-        return doctors;
+        return doctorService.getDoctor();
     }
 
 
     //Post
     @PostMapping
-    public void registerNewDoctor(@RequestBody Doctor doctor){
+        public void registerNewDoctor(@RequestBody Doctor doctor){
         doctorService.addNewDoctor(doctor);
     }
 }
