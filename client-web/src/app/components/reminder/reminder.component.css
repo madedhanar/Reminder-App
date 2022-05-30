@@ -1,0 +1,12 @@
+.container{
+    border: 2px solid;
+}
+
+.body__container{
+    display: flex;
+}
+button{
+    margin: 10px;
+    width: 50%;
+    height: 400px;
+}

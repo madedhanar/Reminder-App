@@ -1,0 +1,22 @@
+form{
+    width: 600px;
+    height: 500px;
+    border: 2px solid;
+    border-radius: 25px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.container{
+    width: 400px;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+    left: 18%;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="header__container">
+        <h1>Reminder History</h1>
+    </div>
+
+    <div class="body__container">
+        <table class="table" matSort (matSortChange)="sortData($event)">
+            <thead>
+                <tr>
+                    <th scope="col" rowspan="2">#</th>
+                  <th scope="col" rowspan="2">Patient Name</th>
+                  <th scope="col" colspan="3" style="text-align: center;">Priority</th>
+                </tr>
+                <tr>
+                  <th scope="col"  mat-sort-header="unfinished_high">High</th>
+                  <th scope="col" mat-sort-header="unfinished_middle">Middle</th>
+                  <th scope="col" mat-sort-header="unfinished_low">Low</th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr *ngFor="let patient of patientList; let counter=index">
+                <th scope="row">{{counter+1}}</th>
+                <td>{{patient.patient_name}}</td>
+                <td>{{patient.unfinished_high}}</td>
+                <td>{{patient.unfinished_middle}}</td>
+                <td>{{patient.unfinished_low}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary btn-lg" [routerLink]="['/home']">Back</button>
+    </div>
+</div>
