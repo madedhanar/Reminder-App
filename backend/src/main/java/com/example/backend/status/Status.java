@@ -6,14 +6,8 @@ import jakarta.persistence.*;
 @Table
 public class Status {
     @Id
-    @SequenceGenerator(
-            name = "status_generator",
-            sequenceName = "status_generator",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "status_generator"
+            strategy = GenerationType.AUTO
     )
     private Long status_id;
     private String status_name;
