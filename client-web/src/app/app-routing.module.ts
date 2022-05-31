@@ -8,7 +8,7 @@ import { ReminderComponent } from './components/reminder/reminder.component';
 
 
 const routes: Routes = [
-  {path:'', component: LoginComponent},
+  {path:'', component: ReminderComponent},
   {path:'login', component: LoginComponent},
   {path:'home', component: ReminderComponent},
   {path:'detail', component: ReminderDetailComponent},

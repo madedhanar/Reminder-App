@@ -6,16 +6,6 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
-      <ion-label [routerLink]="['/reminder-detail']">
-        <h2>Activity 1</h2>
-        <p>You need to walk...</p>
-        <p>Duration: 60 Min</p>
-        <p>Due Date: 05-31-2022</p>
-      </ion-label>
-      <ion-button size="big">Finish</ion-button>
-    </ion-item>
-
     <ion-item *ngFor="let reminder of reminders" >
       <ion-label [routerLink]="['/reminder-detail/']">
         <h2>{{reminder.title}}</h2>
@@ -23,7 +13,7 @@
         <p>Duration: {{reminder.duration}} Minutes</p>
         <p>Due Date: {{reminder.start_date}}</p>
       </ion-label>
-      <ion-button size="big">Finish</ion-button>
+      <ion-button size="big" >Finish</ion-button>
     </ion-item>
 
   </ion-list>
