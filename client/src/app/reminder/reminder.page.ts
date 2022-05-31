@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Reminder } from '../reminder';
+import { ReminderService } from '../reminder.service';
 
 
 @Component({
@@ -12,10 +13,20 @@ export class ReminderPage implements OnInit {
 
   params: Params;
 
-  constructor(private route: ActivatedRoute, public toastController: ToastController) { }
+  constructor(private route: ActivatedRoute, private reminderService:ReminderService) { }
+
+  reminders:Reminder[]
 
   ngOnInit() {
-    this.params = this.route.snapshot.params;
+    this.getReminder();
   }
 
+  private getReminder(){
+    this.reminderService.getReminderList().subscribe(data =>{
+      this.reminders = data;
+    })
+  } 
 }
+
+
+
