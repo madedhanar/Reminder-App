@@ -6,7 +6,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/reminder")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class ReminderController {
     private final ReminderService reminderService;
 
