@@ -13,8 +13,14 @@ export class ReminderService {
   private baseURL = "http://localhost:8080/api/v1/reminder";
   constructor(private http: HttpClient) { }
   
+    //get API Reminder
     getReminderList(): Observable<Reminder[]>{
         return this.http.get<Reminder[]>(`${this.baseURL}`);
+    }
+    
+    //post API Reminder
+    addReminder(reminder: Reminder): Observable<any>{
+        return this.http.post(`${this.baseURL}`, reminder);
     }
 
     
