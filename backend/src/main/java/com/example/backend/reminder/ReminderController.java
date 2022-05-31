@@ -40,6 +40,12 @@ public class ReminderController {
 
     }
 
+    @PutMapping(path = "{id}")
+    public void updateReminder(@PathVariable("id")Long id,
+                              @RequestParam()Integer finished){
+        reminderService.updateReminder(id, finished);
+
+    }
 
 
 }

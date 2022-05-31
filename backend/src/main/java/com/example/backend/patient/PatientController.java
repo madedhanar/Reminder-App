@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/patient")
-@CrossOrigin(origins = "http://localhost:8100")
+@CrossOrigin
 public class PatientController {
     //reference from student services
     private final PatientService patientService;
