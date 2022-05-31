@@ -1,1 +1,33 @@
-<p>reminder-add works!</p>
+<div class="container">
+    <form class="row" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="Activity">Activity</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="reminder.title" name="title" placeholder="Enter Activity">
+        </div>
+        <div class="form-group">
+          <label for="Description">Description</label>
+          <textarea class="form-control" id="description" rows="3" id="description" [(ngModel)]="reminder.description" name="description" placeholder="Enter Description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Finish Time</label>
+            <div class="col-12">
+                <div class="input-group">
+                    <input class="form-control" type="datetime-local" [(ngModel)]="reminder.start_date" id="start-date" name="start-date">
+                </div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Duration</label>
+            <input class="form-control" type="text" placeholder="Duration" [(ngModel)]="reminder.duration" id="duration" name="duration">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Priority</label>
+            <select class="form-control">
+                <option id="priorty__options" value="high" [(ngModel)]="reminder.priority" id="priority_high" name="priority">High</option>
+                <option id="priorty__options" value="middle"[(ngModel)]="reminder.priority" id="priority_middle" name="priority">Middle</option>
+                <option id="priorty__options" value="low" [(ngModel)]="reminder.priority" id="priority_low" name="priority">Low</option>
+              </select>
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

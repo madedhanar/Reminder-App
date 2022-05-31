@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Reminder } from 'src/app/reminder';
+
 
 @Component({
   selector: 'app-reminder-add',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReminderAddComponent implements OnInit {
 
-  constructor() { }
+  reminder:Reminder = new Reminder();
 
   ngOnInit(): void {
   }
+
+  onSubmit(){
+    console.log(this.reminder)
+  }
+
+
 
 }

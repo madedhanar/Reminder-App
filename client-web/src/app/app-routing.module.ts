@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReminderAddComponent } from './components/reminder-add/reminder-add.component';
 import { ReminderDetailComponent } from './components/reminder-detail/reminder-detail.component';

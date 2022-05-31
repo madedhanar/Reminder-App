@@ -16,21 +16,18 @@ public class Reminder {
     private String description;
     private Integer duration;
     private LocalDateTime start_date;
-    private LocalDateTime end_date;
     private String priority;
     private Integer finished;
 
     public Reminder() {
     }
 
-    public Reminder(String title, String description, Integer duration, LocalDateTime start_date, LocalDateTime end_date, String priority, Integer finished) {
+    public Reminder(String title, String description, Integer duration, LocalDateTime start_date, String priority) {
         this.title = title;
         this.description = description;
         this.duration = duration;
         this.start_date = start_date;
-        this.end_date = end_date;
         this.priority = priority;
-        this.finished = finished;
     }
 
     public Long getId() {
@@ -73,13 +70,7 @@ public class Reminder {
         this.start_date = start_date;
     }
 
-    public LocalDateTime getEnd_date() {
-        return end_date;
-    }
 
-    public void setEnd_date(LocalDateTime end_date) {
-        this.end_date = end_date;
-    }
 
     public String getPriority() {
         return priority;
@@ -90,11 +81,11 @@ public class Reminder {
     }
 
     public Integer getFinished() {
-        return finished;
+        return 0;
     }
 
     public void setFinished(Integer finished) {
-        this.finished = finished;
+        this.finished = 0;
     }
 
 
@@ -106,7 +97,6 @@ public class Reminder {
                 ", description='" + description + '\'' +
                 ", duration=" + duration +
                 ", start_date=" + start_date +
-                ", end_date=" + end_date +
                 ", priority='" + priority + '\'' +
                 ", finished=" + finished +
                 '}';

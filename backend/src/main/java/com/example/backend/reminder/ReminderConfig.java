@@ -17,9 +17,7 @@ public class ReminderConfig {
             Reminder reminder1 = new Reminder("Drink 8 glass of water",
                     "You need to drink 8 glass of water to stay hydrate during the day", 60,
                     LocalDateTime.of(2022,05,31,12,00,00),
-                    LocalDateTime.of(2022,05,31,12,00,00),
-                    "High",
-                    0
+                    "High"
                     );
             repository.saveAll(
                     List.of(reminder1)

@@ -13,10 +13,11 @@ public class ReminderService {
         this.reminderRepository = reminderRepository;
     }
 
+    //get reminder method
     public List<Reminder> getReminder(){
         return reminderRepository.findAll();
     }
-
+    //add reminder method
     public void addNewReminder(Reminder reminder) {
         reminderRepository.save(reminder);
     }
