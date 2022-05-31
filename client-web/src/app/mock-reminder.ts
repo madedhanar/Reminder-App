@@ -12,9 +12,7 @@
 //         start_date: start_date,
 //         end_date: end_date,
 //         finish_flag: 0,
-//         patient: "patient1",
-//         doctor: "doctor1",
-//         status:"MIDDLE"
+//         priority:"MIDDLE"
 
         
 //     },
@@ -26,9 +24,7 @@
 //         start_date: start_date,
 //         end_date: end_date,
 //         finish_flag: 1,
-//         patient: "patient1",
-//         doctor: "doctor1",
-//         status:"HIGH"
+//         priority:"HIGH"
 
         
 //     },
@@ -39,7 +35,7 @@
 //         duration: 480,
 //         start_date: new Date("2020-05-31 00:00"),
 //         end_date: new Date("2020-05-31 00:00"),
-//         finished: 0,
+//         finish_flag: 0,
 //         priority:"HIGH"
 
 //     }
