@@ -18,12 +18,4 @@ export class ReminderPage implements OnInit {
     this.params = this.route.snapshot.params;
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'Your settings have been saved.',
-      duration: 2000
-    });
-    toast.present();
-  }
-
 }
