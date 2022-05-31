@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Reminder } from 'src/app/reminder';
-
 import { Patient } from 'src/app/patient';
 import {Sort} from '@angular/material/sort';
 import { ReminderService } from './reminder.service';
+import { PatientList } from 'src/app/mock-patient';
 
 @Component({
   selector: 'app-reminder-detail',
@@ -13,6 +13,7 @@ import { ReminderService } from './reminder.service';
 export class ReminderDetailComponent implements OnInit {
   reminders: Reminder[];
   sortedData: Patient[];
+  patientList: Patient[] = PatientList;
 
   constructor(private reminderService: ReminderService) {
     // this.sortedData = this.patientList.slice();
