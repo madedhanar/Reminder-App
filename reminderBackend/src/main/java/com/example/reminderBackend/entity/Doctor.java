@@ -25,6 +25,7 @@ public class Doctor {
     private String doctorName;
     private String email;
     private String password;
+    private Long patientId;
     @JsonIgnore
     @OneToMany(
             cascade = CascadeType.ALL
@@ -33,4 +34,12 @@ public class Doctor {
             name = "doctor_id"
     )
     private List<Reminder> reminders;
+    @JsonIgnore
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "doctor_patient"
+    )
+    private List<Patient> patient;
 }
