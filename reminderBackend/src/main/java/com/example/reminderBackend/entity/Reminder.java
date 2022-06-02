@@ -5,6 +5,7 @@ import com.example.reminderBackend.repository.ReminderRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 @Setter
 @Builder
 @Table
+@CrossOrigin("http://localhost:4200")
 //@Table(
 //        name = "tbl_reminder",
 //        uniqueConstraints = @UniqueConstraint(

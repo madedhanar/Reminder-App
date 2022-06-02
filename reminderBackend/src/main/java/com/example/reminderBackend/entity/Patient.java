@@ -2,6 +2,7 @@ package com.example.reminderBackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Table
+@CrossOrigin("http://localhost:4200")
 public class Patient {
     @Id
     @GeneratedValue(
