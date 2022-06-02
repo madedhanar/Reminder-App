@@ -18,9 +18,9 @@
                 </tr>
               </thead>
             <tbody>
-              <tr *ngFor="let reminder of reminders; let counter=index">
+              <tr *ngFor="let patient of patients; let counter=index">
                 <th scope="row">{{counter+1}}</th>
-                <td>{{reminder.title}}</td>
+                <td>{{patients.patientName}}</td>
               </tr>
             </tbody>
           </table>
