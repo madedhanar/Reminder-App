@@ -18,9 +18,7 @@ public interface ReminderRepository extends JpaRepository<Reminder, Long> {
     public List<Reminder> findReminderByDoctor(Long doctorId);
 
 //    public List<Reminder> findReminderByPriority_name(String priority);
-//
-//    @Query("select r.reminderTitle from Reminder r where r.reminderTitle = ?1")
-//    String findContainingTitle(String reminderTitle);
+
 
 
 

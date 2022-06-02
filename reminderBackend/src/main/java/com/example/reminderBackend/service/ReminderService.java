@@ -1,9 +1,7 @@
 package com.example.reminderBackend.service;
 
 
-import com.example.reminderBackend.entity.Patient;
 import com.example.reminderBackend.entity.Reminder;
-import com.example.reminderBackend.entity.ReminderRequest;
 
 import java.util.List;
 
@@ -18,7 +16,6 @@ public interface ReminderService {
 
     public Reminder updateReminder(Long reminderId, Reminder reminder);
 
-    public Reminder saveReminderById(ReminderRequest reminderRequest);
 
     public List<Reminder> getReminderByPatientId(Long patientId);
 

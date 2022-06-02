@@ -1,9 +1,6 @@
 package com.example.reminderBackend.service;
 
-import com.example.reminderBackend.entity.Doctor;
-import com.example.reminderBackend.entity.Patient;
 import com.example.reminderBackend.entity.Reminder;
-import com.example.reminderBackend.entity.ReminderRequest;
 import com.example.reminderBackend.repository.DoctorRepository;
 import com.example.reminderBackend.repository.PatientRepository;
 import com.example.reminderBackend.repository.ReminderRepository;
@@ -82,26 +79,6 @@ public class ReminderServiceImpl implements ReminderService {
 
 
         return  reminderRepository.save(reminderDB);
-    }
-
-    @Override
-    public Reminder saveReminderById(ReminderRequest reminderRequest) {
-        Patient patient = patientRepository.findPatientsByPatientId(reminderRequest.patientId);
-        Doctor doctor = doctorRepository.findDoctorByDoctorId(reminderRequest.doctorId);
-
-        Reminder reminder = Reminder.builder()
-                .reminderTitle(reminderRequest.reminderTitle)
-                .reminderDescription(reminderRequest.reminderDescription)
-                .startDate(reminderRequest.startDate)
-                .endDate(reminderRequest.endDate)
-                .duration(reminderRequest.duration)
-                .finishFlag(reminderRequest.finishFlag)
-                .priority(reminderRequest.priority)
-                .doctorId(doctor)
-                .patientId(patient)
-                .build();
-
-        return reminderRepository.save(reminder);
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.example.reminderBackend.controller;
 
-import com.example.reminderBackend.entity.Patient;
 import com.example.reminderBackend.entity.Reminder;
-import com.example.reminderBackend.entity.ReminderRequest;
 import com.example.reminderBackend.service.ReminderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,15 +39,10 @@ public class ReminderController {
     }
 
     //Post Reminder
-    @PostMapping("")
+    @PostMapping()
     public Reminder saveReminder(@RequestBody Reminder reminder){
         return reminderService.saveReminder(reminder);
     }
-//    //Post Reminder data with patient & doctor id
-//    @PostMapping()
-//    public Reminder saveReminderWithId(@RequestBody ReminderRequest reminderRequest){
-//        return reminderService.saveReminderById(reminderRequest);
-//    }
 
     //Delete reminder data
     @DeleteMapping("/{reminderId}")
