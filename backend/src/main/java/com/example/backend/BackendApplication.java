@@ -15,18 +15,5 @@ public class BackendApplication {
 
 		SpringApplication.run(BackendApplication.class, args);
 	}
-	@GetMapping
-	public List<patient> hello(){
-		return List.of(
-				new patient(
-						1L,
-						"patient1",
-						"patient1@gmail.com",
-						"patient1"
-				)
-		);
-	}
-
-
 
 }

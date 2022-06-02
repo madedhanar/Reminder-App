@@ -21,6 +21,7 @@ public class ReminderController {
         this.reminderService = reminderService;
     }
 
+
     @GetMapping
     public List<Reminder> getReminder(){
         return reminderService.getReminder();
