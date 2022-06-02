@@ -2,9 +2,9 @@
 import { Reminder } from "./reminder";
 
 
-export interface Patient{
+export class Patient{
     id?:number,
-    patient_name: String,
+    patientName: String,
     email: string,
     password: string,
     doctor_name:string,
