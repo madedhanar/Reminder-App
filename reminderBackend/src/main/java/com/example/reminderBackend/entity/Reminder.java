@@ -19,7 +19,6 @@ import java.util.Calendar;
 @Setter
 @Builder
 @Table
-@CrossOrigin("http://localhost:4200")
 //@Table(
 //        name = "tbl_reminder",
 //        uniqueConstraints = @UniqueConstraint(

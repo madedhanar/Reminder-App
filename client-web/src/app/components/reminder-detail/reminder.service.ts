@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Reminder } from 'src/app/reminder';
+import { Patient } from 'src/app/patient';
 
 
 @Injectable(
@@ -10,7 +11,9 @@ import { Reminder } from 'src/app/reminder';
     )
 export class ReminderService {
   private baseURL = "http://localhost:8080/api/v1/reminder";
-  private getPatientURL = "http://localhost:8080/api/v1/patient/doctor/1"
+  private testGetCount = "http://localhost:8080/api/v1/reminder/getCount";
+  private getPatientURL = "http://localhost:8080/api/v1/patient/doctor/2";
+  
   constructor(private http: HttpClient) { }
   
     //get API Reminder
@@ -19,14 +22,20 @@ export class ReminderService {
     }
 
     //get PatientList API Reminder
-    getPatientList(): Observable<Reminder[]>{
-        return this.http.get<Reminder[]>(`${this.getPatientURL}`);
+    getPatientList(): Observable<Patient[]>{
+        return this.http.get<Patient[]>(`${this.getPatientURL}`);
+    }
+
+    //get Count By Priority API Reminder
+    getCountByPriority(): Observable<Object[]>{
+        return this.http.get<Object[]>(`${this.testGetCount}`);
     }
     
     //post API Reminder
     addReminder(reminder: Reminder): Observable<any>{
         return this.http.post(`${this.baseURL}`, reminder);
     }
+    
 
     
 }

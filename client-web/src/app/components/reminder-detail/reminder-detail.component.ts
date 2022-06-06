@@ -13,6 +13,7 @@ import { PatientList } from 'src/app/mock-patient';
 export class ReminderDetailComponent implements OnInit {
   reminders: Reminder[];
   patients: Patient[];
+  countPriority: Object[] = [];
   patientList: Patient[] = PatientList;
 
   constructor(private reminderService: ReminderService) {
@@ -20,8 +21,8 @@ export class ReminderDetailComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    //this.getReminder();
     this.getPatientList();
+    this.getCountByPriority();
   }
 
   private getReminder(){
@@ -31,8 +32,14 @@ export class ReminderDetailComponent implements OnInit {
   }
 
   private getPatientList(){
-    this.reminderService.getPatientList().subscribe(data =>{
-      this.patients = data
+    this.reminderService.getPatientList().subscribe(dataPatient =>{
+      this.patients = dataPatient
+    })
+  }
+
+  private getCountByPriority(){
+    this.reminderService.getCountByPriority().subscribe(dataCount =>{
+      this.countPriority = dataCount;
     })
   }
 

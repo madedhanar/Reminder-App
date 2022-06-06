@@ -21,5 +21,5 @@ public interface ReminderService {
 
     public List<Reminder> getReminderByDoctorId(Long doctorId);
 
-
+    public Long getCount();
 }

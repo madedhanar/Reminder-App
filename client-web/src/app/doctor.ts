@@ -1,7 +1,7 @@
-export interface Doctor {
+export class Doctor {
     id?: number;
     doctor_name: string;
-    email: string;
-    password: string;
+    email!: string;
+    password!: string;
     patient_list: string[];
 }

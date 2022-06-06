@@ -15,7 +15,6 @@ import java.util.Set;
 @Setter
 @Getter
 @Table
-@CrossOrigin("http://localhost:4200")
 public class Patient {
     @Id
     @GeneratedValue(

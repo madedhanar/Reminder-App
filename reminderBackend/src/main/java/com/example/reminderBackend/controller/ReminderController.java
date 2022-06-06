@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/reminder")
+@CrossOrigin
 public class ReminderController {
 
     @Autowired
@@ -36,6 +37,12 @@ public class ReminderController {
     @GetMapping("/doctor/{doctorId}")
     public List<Reminder> getReminderByDoctorId(@PathVariable("doctorId") Long doctorId){
         return reminderService.getReminderByDoctorId(doctorId);
+    }
+    //Get Count
+    @GetMapping("/getcount")
+    public Long getCountByPriority()
+    {
+        return reminderService.getCount();
     }
 
     //Post Reminder

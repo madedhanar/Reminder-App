@@ -42,6 +42,7 @@ public class ReminderServiceImpl implements ReminderService {
 
     @Override
     public Reminder updateReminder(Long reminderId, Reminder reminder) {
+
         Reminder reminderDB = reminderRepository.findById(reminderId).get();
 
         if (Objects.nonNull(reminder.getReminderTitle()) &&
@@ -89,6 +90,11 @@ public class ReminderServiceImpl implements ReminderService {
     @Override
     public List<Reminder> getReminderByDoctorId(Long doctorId) {
         return reminderRepository.findReminderByDoctor(doctorId);
+    }
+
+    @Override
+    public Long getCount() {
+        return reminderRepository.countReminderByPriority("High");
     }
 
 

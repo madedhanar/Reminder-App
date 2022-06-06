@@ -17,10 +17,9 @@ public interface ReminderRepository extends JpaRepository<Reminder, Long> {
     public List<Reminder> findReminderByPatient(Long patientId);
     public List<Reminder> findReminderByDoctor(Long doctorId);
 
-//    public List<Reminder> findReminderByPriority_name(String priority);
+//    @Query(value = "SELECT r.priority, COUNT(r.priority) FROM Reminder AS r " +
+//            "WHERE r.finish_Flag = 0 and r.patient_id = :patient GROUP BY r.priority", nativeQuery = true)
+//    public List<Object[]> countReminderByPriority();
 
-
-
-
-
+    Long countReminderByPriority(String priority);
 }
