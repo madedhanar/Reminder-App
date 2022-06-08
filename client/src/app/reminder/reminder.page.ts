@@ -26,6 +26,10 @@ export class ReminderPage implements OnInit {
       this.reminders = data;
     })
   } 
+
+  onClick(){
+    this.reminderService.updateReminder(this.reminderId, this.reminder)
+  }
 }
 
 
