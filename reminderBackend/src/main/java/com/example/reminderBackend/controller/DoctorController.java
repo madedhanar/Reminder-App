@@ -15,16 +15,13 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-
+    //get all doctor list
     @GetMapping
     public List<Doctor> getDoctor(){
         return doctorService.getDoctor();
     }
-    @PostMapping
-    public Doctor addDoctor(@RequestBody Doctor doctor){
-        return doctorService.saveDoctor(doctor);
-    }
 
+    //Login
     @PostMapping("/login")
     public ResponseEntity<Doctor> login(@RequestBody Doctor doctor){
         return doctorService.login(doctor);

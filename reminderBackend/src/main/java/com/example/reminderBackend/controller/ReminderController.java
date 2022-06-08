@@ -58,9 +58,9 @@ public class ReminderController {
         return "Reminder deleted successfully";
     }
 
-    @PutMapping("/{reminderId}")
-    public Reminder updateReminder(@PathVariable("reminderId") Long reminderId,
-                                  @RequestBody Reminder reminder){
-        return reminderService.updateReminder(reminderId,reminder);
+    @PatchMapping("/{reminderId}")
+    public Integer updateReminder(@PathVariable("reminderId") Long reminderId,
+                                  @RequestParam Integer finishflag){
+        return reminderService.updateReminder(reminderId,finishflag);
     }
 }

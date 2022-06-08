@@ -8,12 +8,13 @@
   <ion-list>
     <ion-item *ngFor="let reminder of reminders" >
       <ion-label [routerLink]="['/reminder-detail/']">
-        <h2>{{reminder.title}}</h2>
-        <p>{{reminder.description}}</p>
+        <h2>{{reminder.reminderTitle}}</h2>
+        <h3 style="white-space: normal;">{{reminder.reminderDescription}}</h3>
+        <p>Priority: {{reminder.priority}}</p>
         <p>Duration: {{reminder.duration}} Minutes</p>
-        <p>Due Date: {{reminder.start_date}}</p>
+        <p>Due Date: {{reminder.endDate}}</p>
       </ion-label>
-      <ion-button size="big" >Finish</ion-button>
+      <ion-button size="big">Finish</ion-button>
     </ion-item>
 
   </ion-list>

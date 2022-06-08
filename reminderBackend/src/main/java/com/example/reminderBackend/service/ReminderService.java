@@ -13,8 +13,7 @@ public interface ReminderService {
     public Reminder getReminderById(Long reminderId);
 
     public void deleteReminderById(Long reminderId);
-
-    public Reminder updateReminder(Long reminderId, Reminder reminder);
+    
 
 
     public List<Reminder> getReminderByPatientId(Long patientId);
@@ -22,4 +21,6 @@ public interface ReminderService {
     public List<Reminder> getReminderByDoctorId(Long doctorId);
 
     public Long getCount();
+
+    Integer updateReminder(Long reminderId, Integer finishflag);
 }

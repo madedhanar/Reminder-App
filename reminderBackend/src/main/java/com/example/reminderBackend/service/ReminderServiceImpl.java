@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class ReminderServiceImpl implements ReminderService {
@@ -21,7 +21,6 @@ public class ReminderServiceImpl implements ReminderService {
     private PatientRepository patientRepository;
     @Override
     public Reminder saveReminder(Reminder reminder) {
-
         return reminderRepository.save(reminder);
     }
 
@@ -40,47 +39,21 @@ public class ReminderServiceImpl implements ReminderService {
         reminderRepository.deleteById(reminderId);
     }
 
-    @Override
-    public Reminder updateReminder(Long reminderId, Reminder reminder) {
-
-        Reminder reminderDB = reminderRepository.findById(reminderId).get();
-
-        if (Objects.nonNull(reminder.getReminderTitle()) &&
-                !"".equalsIgnoreCase(reminder.getReminderTitle()))
-        {
-            reminderDB.setReminderTitle(reminder.getReminderTitle());
-        }
-
-        if (Objects.nonNull(reminder.getReminderDescription()) &&
-                !"".equalsIgnoreCase(reminder.getReminderDescription()))
-        {
-            reminderDB.setReminderDescription(reminder.getReminderDescription());
-        }
-        if (Objects.nonNull(reminder.getDuration()))
-        {
-            reminderDB.setDuration(reminder.getDuration());
-        }
-        if (Objects.nonNull(reminder.getStartDate()))
-        {
-            reminderDB.setStartDate(reminder.getStartDate());
-        }
-        if (Objects.nonNull(reminder.getEndDate()))
-        {
-            reminderDB.setEndDate(reminder.getEndDate());
-        }
-        if (Objects.nonNull(reminder.getPriority()) &&
-                !"".equalsIgnoreCase(reminder.getPriority()))
-        {
-            reminderDB.setPriority(reminder.getPriority());
-        }
-        if (Objects.nonNull(reminder.getFinishFlag()))
-        {
-            reminderDB.setFinishFlag(reminder.getFinishFlag());
-        }
-
-
-        return  reminderRepository.save(reminderDB);
-    }
+//    @Override
+//    public Reminder updateReminder(Long reminderId, Reminder reminder) {
+//
+//        Reminder reminderDB = reminderRepository.findById(reminderId).stream().filter(reminder -> reminder.getReminderId() == reminderId).findFirst();
+//
+//
+//        if (Objects.nonNull(reminder.getFinishFlag()))
+//        {
+//
+//            reminderDB.setFinishFlag(reminder.getFinishFlag());
+//        }
+//
+//
+//        return  reminderRepository.save(reminderDB);
+//    }
 
     @Override
     public List<Reminder> getReminderByPatientId(Long patientId) {
@@ -95,6 +68,17 @@ public class ReminderServiceImpl implements ReminderService {
     @Override
     public Long getCount() {
         return reminderRepository.countReminderByPriority("High");
+    }
+
+    @Override
+    public Integer updateReminder(Long reminderId, Integer finishFlag) {
+        Optional<Reminder> result = reminderRepository.findById(reminderId).stream().filter(reminder -> reminder.getReminderId() == reminderId).findFirst();
+        if(result.isPresent()){
+            result.get().setFinishFlag(finishFlag);
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 

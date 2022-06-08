@@ -1,6 +1,6 @@
 
 export class Patient{
-    id? = Number;
+    patientId? = Number;
     patientName = String;
     email = String;
     password = String;

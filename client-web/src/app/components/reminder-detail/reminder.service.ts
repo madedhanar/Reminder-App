@@ -12,7 +12,7 @@ import { Patient } from 'src/app/patient';
 export class ReminderService {
   private baseURL = "http://localhost:8080/api/v1/reminder";
   private testGetCount = "http://localhost:8080/api/v1/reminder/getCount";
-  private getPatientURL = "http://localhost:8080/api/v1/patient/doctor/2";
+  private getPatientURL = "http://localhost:8080/api/v1/patient/doctor/3";
   
   constructor(private http: HttpClient) { }
   

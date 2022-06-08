@@ -13,11 +13,6 @@ public class PatientServiceImpl implements PatientService{
     @Autowired
     private PatientRepository patientRepository;
     @Override
-    public Patient savePatient(Patient patient) {
-        return patientRepository.save(patient);
-    }
-
-    @Override
     public List<Patient> getPatient() {
         return patientRepository.findAll();
     }
@@ -25,6 +20,11 @@ public class PatientServiceImpl implements PatientService{
     @Override
     public List<Patient> getPatientByDoctorId(Long doctorId) {
         return patientRepository.findPatientByDoctorId(doctorId);
+    }
+
+    @Override
+    public Patient savePatient(Patient patient) {
+        return patientRepository.save(patient);
     }
 
 }

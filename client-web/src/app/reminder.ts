@@ -1,9 +1,11 @@
 export class Reminder {
-    id: number;
-    title: string;
-    description: string;
+    reminderId: number;
+    reminderTitle: string;
+    reminderDescription: string;
     duration: number;
-    start_date: Date;
+    endDate: Date;
     priority: string;
-    finished: number;
+    finishFlag: number = 0;
+    patient: number;
+    doctor: number = 3;
 }

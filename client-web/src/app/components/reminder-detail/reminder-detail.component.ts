@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Reminder } from 'src/app/reminder';
 import { Patient } from 'src/app/patient';
-import {Sort} from '@angular/material/sort';
 import { ReminderService } from './reminder.service';
-import { PatientList } from 'src/app/mock-patient';
 
 @Component({
   selector: 'app-reminder-detail',
@@ -14,7 +12,7 @@ export class ReminderDetailComponent implements OnInit {
   reminders: Reminder[];
   patients: Patient[];
   countPriority: Object[] = [];
-  patientList: Patient[] = PatientList;
+  // patientList: Patient[] = PatientList;
 
   constructor(private reminderService: ReminderService) {
     // this.sortedData = this.patientList.slice();
@@ -25,18 +23,20 @@ export class ReminderDetailComponent implements OnInit {
     this.getCountByPriority();
   }
 
-  private getReminder(){
-    this.reminderService.getReminderList().subscribe(data =>{
-      this.reminders = data;
-    })
-  }
+  // private getReminder(){
+  //   this.reminderService.getReminderList().subscribe(data =>{
+  //     this.reminders = data;
+  //   })
+  // }
 
+    //function to get patient list from service to component
   private getPatientList(){
     this.reminderService.getPatientList().subscribe(dataPatient =>{
       this.patients = dataPatient
     })
   }
 
+  //stil on test
   private getCountByPriority(){
     this.reminderService.getCountByPriority().subscribe(dataCount =>{
       this.countPriority = dataCount;
