@@ -11,6 +11,8 @@ import { ReminderDetailComponent } from './components/reminder-detail/reminder-d
 import { ReminderAddComponent } from './components/reminder-add/reminder-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { PatientListComponent } from './components/patient-list/patient-list.component';
+
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     ReminderComponent,
     ReminderDetailComponent,
-    ReminderAddComponent
+    ReminderAddComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,6 @@ import { priority } from 'src/app/priority';
 import { priorityList } from 'src/app/priority-list';
 import { Reminder } from 'src/app/reminder';
 import { ReminderService } from '../reminder-detail/reminder.service';
-//import validator and FormBuilder
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
 
 
 @Component({
@@ -21,16 +18,12 @@ export class ReminderAddComponent implements OnInit {
   reminder:Reminder = new Reminder();
   patients: Patient[];
   priority: priority[] = priorityList
-  requiredForm: FormGroup;
 
-  constructor(private reminderService:ReminderService, private router: Router, private fb: FormBuilder){
-    this.myForm();
+
+  constructor(private reminderService:ReminderService, private router: Router ){
+
    }
-   myForm() {
-    this.requiredForm = this.fb.group({
-    name: ['', Validators.required ]
-    });
- }
+
 
   ngOnInit(): void {
     this.getPatientList();
