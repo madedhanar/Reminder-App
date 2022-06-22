@@ -11,7 +11,7 @@ describe('ReminderDetailComponent', () => {
       declarations: [ ReminderDetailComponent ]
     })
     .compileComponents();
-  });
+  });-
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ReminderDetailComponent);
