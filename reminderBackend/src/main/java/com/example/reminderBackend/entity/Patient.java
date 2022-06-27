@@ -34,12 +34,5 @@ public class Patient {
     )
     private List<Reminder> reminders;
     private Long doctorId;
-    @JsonIgnore
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "patient_doctor"
-    )
-    private Doctor doctor;
+
 }

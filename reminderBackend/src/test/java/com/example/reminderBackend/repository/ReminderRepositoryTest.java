@@ -34,7 +34,6 @@ class ReminderRepositoryTest {
     @Test
     public void printAllReminder(){
         List<Reminder> reminderList = reminderRepository.findAll();
-/
         System.out.println("reminderList = " + reminderList);
     }
     @Test

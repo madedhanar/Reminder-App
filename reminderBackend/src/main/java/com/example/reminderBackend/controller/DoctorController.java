@@ -18,12 +18,14 @@ public class DoctorController {
     //get all doctor list
     @GetMapping
     public List<Doctor> getDoctor(){
+
         return doctorService.getDoctor();
     }
 
     //Login
     @PostMapping("/login")
     public ResponseEntity<Doctor> login(@RequestBody Doctor doctor){
+
         return doctorService.login(doctor);
     }
 }

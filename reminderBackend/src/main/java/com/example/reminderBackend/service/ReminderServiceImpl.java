@@ -5,6 +5,7 @@ import com.example.reminderBackend.repository.DoctorRepository;
 import com.example.reminderBackend.repository.PatientRepository;
 import com.example.reminderBackend.repository.ReminderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,21 +66,25 @@ public class ReminderServiceImpl implements ReminderService {
         return reminderRepository.findReminderByDoctor(doctorId);
     }
 
-    @Override
-    public Long getCount() {
-        return reminderRepository.countReminderByPriority("High");
-    }
+//    @Override
+//    public Long getCount() {
+//        return reminderRepository.countReminderByPriority("High");
+//    }
 
     @Override
-    public Integer updateReminder(Long reminderId, Integer finishFlag) {
-        Optional<Reminder> result = reminderRepository.findById(reminderId).stream().filter(reminder -> reminder.getReminderId() == reminderId).findFirst();
+    public Reminder updateReminder(Reminder reminder, Long reminderId, Boolean finishFlag) {
+        Optional<Reminder> result = reminderRepository.findById(reminderId).stream().findFirst();
         if(result.isPresent()){
-            result.get().setFinishFlag(finishFlag);
-            return 1;
+            reminder.setFinishFlag(finishFlag);
+            return reminderRepository.save(reminder);
         } else {
-            return 0;
+            return null;
         }
     }
 
+    @Override
+    public Long countReminderByPatientAndPriority(Long patientId, String priority, Boolean finishFlag) {
+        return reminderRepository.countByPatientAndPriorityAndFinishFlag(patientId,priority, finishFlag);
+    }
 
 }

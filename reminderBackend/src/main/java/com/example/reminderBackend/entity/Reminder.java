@@ -1,15 +1,11 @@
 package com.example.reminderBackend.entity;
 
 
-import com.example.reminderBackend.repository.ReminderRepository;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
 @Entity
 @Data
@@ -43,28 +39,23 @@ public class Reminder {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Integer duration;
-    private Integer finishFlag;
+    private Boolean finishFlag;
+    private LocalDateTime finishDate;
+    private Boolean isLate;
     private String priority;
     @Column(name = "doctor_id")
     private Long doctor;
     @Column(name = "patient_id")
     private Long patient;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name ="doctor_id",
-            insertable = false,
-            updatable = false
-    )
-    private Doctor doctorId;
-    @ManyToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "patient_id",
-            insertable = false,
-            updatable = false
-    )
-    private Patient patientId;
+
+
+    public void setDuration(Integer duration) {
+        this.duration = Math.toIntExact(Duration.between(endDate, startDate).toHoursPart());
+    }
+
+    public Boolean setFinishFlag(Boolean finishFlag){
+        this.finishFlag = finishFlag;
+        return finishFlag;
+    }
+
 }

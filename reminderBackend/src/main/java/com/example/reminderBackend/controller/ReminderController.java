@@ -3,6 +3,8 @@ package com.example.reminderBackend.controller;
 import com.example.reminderBackend.entity.Reminder;
 import com.example.reminderBackend.service.ReminderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,10 +41,13 @@ public class ReminderController {
         return reminderService.getReminderByDoctorId(doctorId);
     }
     //Get Count
-    @GetMapping("/getcount")
-    public Long getCountByPriority()
+    @GetMapping("/getcount/{patientId}&{priority}&{finishFlag}")
+    public Long getCountByPriority(@PathVariable("patientId") Long patientId,
+                                   @PathVariable("priority") String priority,
+                                   @PathVariable("finishFlag") Boolean finishFlag)
     {
-        return reminderService.getCount();
+
+        return reminderService.countReminderByPatientAndPriority(patientId, priority, finishFlag);
     }
 
     //Post Reminder
@@ -58,9 +63,11 @@ public class ReminderController {
         return "Reminder deleted successfully";
     }
 
-    @PatchMapping("/{reminderId}")
-    public Integer updateReminder(@PathVariable("reminderId") Long reminderId,
-                                  @RequestParam Integer finishflag){
-        return reminderService.updateReminder(reminderId,finishflag);
+    @PatchMapping("/{reminderId}&{finishFlag}")
+    public Reminder updateReminder(@RequestBody Reminder reminder,
+                                   @PathVariable("reminderId") Long reminderId,
+                                   @PathVariable("finishFlag") Boolean finishFlag){
+
+        return reminderService.saveReminder(reminder);
     }
 }

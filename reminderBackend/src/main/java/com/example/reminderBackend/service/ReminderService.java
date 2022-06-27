@@ -20,7 +20,10 @@ public interface ReminderService {
 
     public List<Reminder> getReminderByDoctorId(Long doctorId);
 
-    public Long getCount();
+//    public Long getCount();
 
-    Integer updateReminder(Long reminderId, Integer finishflag);
+    public Reminder updateReminder(Reminder reminder, Long reminderId, Boolean finishFlag);
+
+
+    Long countReminderByPatientAndPriority(Long patientId, String priority, Boolean finishFlag);
 }
